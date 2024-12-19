@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Online</title>
+    <style>
+        /* Reset dasar untuk margin dan padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            padding: 15px 20px;
+            color: rgb(0,78,255);
+color: linear-gradient(90deg, rgba(0,78,255,1) 100%, rgba(2,0,36,1) 100%, rgba(4,255,176,1) 100%, rgba(0,212,255,1) 100%);;
+            font-size: 18px;
+           
+            text-align: center;
+            background-color: none;
+        }
+
+        /* Desain untuk badan halaman */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+
+        /* Desain menu horizontal */
+        nav {
+            background-color: background: background: rgb(0,78,255);
+background: linear-gradient(90deg, rgba(0,78,255,1) 100%, rgba(2,0,36,1) 100%, rgba(4,255,176,1) 100%, rgba(0,212,255,1) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            padding: 15px 20px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        nav ul li:hover {
+            background-color: #555;
+        }
+
+        /* Menyorot menu yang aktif */
+        .active {
+            background-color: #007BFF;
+        }
+
+        /* Desain konten form */
+        .content {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Desain form input */
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Tombol untuk menghitung */
+        .form-container button {
+            padding: 10px 20px;
+            background-color: background-color: background: background: rgb(0,78,255);
+background: linear-gradient(90deg, rgba(0,78,255,1) 100%, rgba(2,0,36,1) 100%, rgba(4,255,176,1) 100%, rgba(0,212,255,1) 100%);;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        /* Tampilan hasil kalkulasi */
+        .result {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .footer {
+    
+    color: #fff;
+    height: 40px;
+    padding: 5px 30px;
+    background-color: background: background: rgb(0,78,255);
+background: linear-gradient(90deg, rgba(0,78,255,1) 100%, rgba(2,0,36,1) 100%, rgba(4,255,176,1) 100%, rgba(0,212,255,1) 100%);
+            border-radius: 8px;
+            text-align: center;
+            
+}
+
+.footer-logo {
+    float: left;
+    font-size: 20px;
+}
+
+.footer-list {
+    float: right;
+}
+
+.footer-list li {
+    padding-bottom: 5px 5px;
+}
+    </style>
+</head>
+<body>
+    <header><h3>MY CALCULATOR</header></h3>
+
+    <!-- Menu Navigasi -->
+    <nav>
+        <ul>
+            <li class="menu-item active" onclick="showContent('home')">Beranda</li>
+            <li class="menu-item" onclick="showContent('calculator')">Kalkulator</li>
+            <li class="menu-item" onclick="showContent('about')">Tentang</li>
+        </ul>
+    </nav>
+
+    <!-- Konten Halaman -->
+    <div id="home" class="content">
+        <h2 align text="center">WELCOME TO MY CALCULATOR</h2><br>
+        <p>Kalkulator menjadi alat bantu hitung yang terbukti sangat berguna bagi kehidupan manusia modern. Namun kini inovasi berupa kalkulator online memberikan lebih banyak kemudahan lagi. Sayangnya tidak banyak orang yang sadar manfaat dan fungsi akan kalkukator online tersebut.</p><br>
+
+<p>Kalkulator merupakan alat hitung sederhana (penjumlahan, pengurangan, perkalian, dan pembagian) dan keperluan ilmiah seperti menghitung rumus matematika. Bentuknya persegi panjang dilengkapi layar baris (memuat 12-15 digit) dan tombol angka serta huruf.</p><br>
+
+<p>Kita mengenal alat bantu hitung bernama kalkulator mungkin sejak kecil. Dalam kegiatan sehari-hari, kita melihat alat tersebut mungkin di warung dekat rumah, meja kantor orang tua kita sampai akhirnya menggunakannya sendiri. Umumnya siswa SMA akan mulai menggunakan kalkultor untuk belajar akuntansi sederhana.</p><br>
+<p>Penggunannya kemudian berlanjut dengan scientific calculator yang sangat membantu untuk pelajaran akuntansi lanjutan atau trigonometri. Kemudian mahasiswa perguruan tinggi juga memakainya dalam kegiatan perkuliahan sehari-hari. Jika dulu bentuknya terasa kurang compact dan harus dibawa ke mana-mana maka sekarang dimudahkan dengan adanya kalkulator online.</p>
+    </div>
+
+    <div id="calculator" class="content">
+        <h2>Kalkulator</h2>
+        <div class="form-container">
+            <input type="number" id="num1" placeholder="Masukkan angka pertama">
+            <input type="number" id="num2" placeholder="Masukkan angka kedua">
+            <button onclick="tambah()">+</button>
+            <button onclick="kurang()">-</button>
+            <button onclick="kali()">x</button>
+            <button onclick="bagi()">:</button>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <div id="about" class="content">
+        <h2>Tentang Kami</h2>
+        <p>Halaman ini hanya tugas perkuliahan semata, dan untuk belajar!.</p>
+    </div>
+    <div class="footer">
+            <h2>MUHAMMAD DZAKY KURNIAWAN</h2>
+            </div>
+
+    <script>
+        // Menampilkan konten sesuai menu yang dipilih
+        function showContent(menu) {
+            // Menyembunyikan semua konten
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Menghapus kelas 'active' dari semua item menu
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Menampilkan konten yang sesuai dengan menu yang dipilih
+            document.getElementById(menu).style.display = 'block';
+
+            // Menandai item menu yang aktif
+            event.target.classList.add('active');
+        }
+
+        // Fungsi untuk menghitung hasil kalkulasi
+        function tambah() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const result = num1 + num2;
+                document.getElementById('result').textContent = 'Hasil: ' + result;
+            } else {
+                document.getElementById('result').textContent = 'Harap masukkan angka yang valid.';
+            }
+
+        }
+        // Fungsi untuk menghitung pengurangan
+        function kurang(angka1, angka2) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const result = num1 - num2;
+                document.getElementById('result').textContent = 'Hasil: ' + result;
+            } else {
+                document.getElementById('result').textContent = 'Harap masukkan angka yang valid.';
+            }
+
+            
+        }
+        function kali(angka1, angka2) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const result = num1 * num2;
+                document.getElementById('result').textContent = 'Hasil: ' + result;
+            } else {
+                document.getElementById('result').textContent = 'Harap masukkan angka yang valid.';
+            }
+
+            
+        }
+       function bagi(angka1, angka2) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const result = num1 / num2;
+                document.getElementById('result').textContent = 'Hasil: ' + result;
+            } else {
+                document.getElementById('result').textContent = 'Harap masukkan angka yang valid.';
+            }
+        }
+        
+    
+
+        // Menampilkan halaman pertama (home) saat pertama kali dibuka
+        window.onload = function() {
+            showContent('home');
+        }
+    </script>
+
+</body>
+</html>
